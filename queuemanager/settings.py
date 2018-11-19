@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'queuemanager.wsgi.application'
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 
-DEBUG = os.environ.get('DEBUG', default=False, cast=bool)
+DEBUG = os.environ.get('DEBUG', default=False)
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get('DATABASE_URL')
