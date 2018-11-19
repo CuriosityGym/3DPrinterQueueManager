@@ -1,6 +1,6 @@
 openpyxl
 dj-database-url
-Django
+django-heroku
 gunicorn
 psycopg2
 whitenoise
