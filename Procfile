@@ -1,1 +1,1 @@
-web: gunicorn PrintQueueManager.wsgi:application --log-file -
+web: gunicorn cgdjango.wsgi:application --log-file -
