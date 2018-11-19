@@ -1,0 +1,104 @@
+{% extends "Layout.html" %}
+{% load static %}
+
+{% block hiddenVar %}
+  {% if Recent %}
+  <input type="hidden" value="3" id="modelNum"></input>
+  <input type="hidden" value={{RecentPrints0.file_path_obj}} id="modelName1"></input>
+  <input type="hidden" value={{RecentPrints1.file_path_obj}} id="modelName2"></input>
+  <input type="hidden" value={{RecentPrints2.file_path_obj}} id="modelName3"></input>
+  {% else %}
+  <input type="hidden" value="0" id="modelNum"></input>
+  {% endif %}
+
+{% endblock %}
+
+{% block title %}InnovationHub  |  Account{% endblock %}
+</head>
+
+{% block heading %}My Account{% endblock %}
+
+  {% block content %}
+  <div class="container_12">
+    <div class="clear"></div>
+    <div class="grid_4 header"><h1></h1></div>
+    <div class="grid_4 header">
+
+      <h1 class="top"><img class='logo' src = "{% static 'Images/Icon.png' %}" alt = 'Your Face'></h1>
+
+    </div>
+    <div class="grid_4 header"></div>
+    <div class="clear"></div>
+
+    <div class="grid_12 header">
+      <table class="Data">
+        <thead>
+          <tr>
+            <th colspan="2">Account Information</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="Field">Name:</td>
+            <td>{{name}}<!--Aryaman Kejriwal--></td>
+          </tr>
+          <tr>
+            <td class="Field">Class:</td>
+            <td>{{class}}</td>
+          </tr>
+          <tr>
+            <td class="Field">Quota:</td>
+            <td>{{Quota}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="clear"></div>
+
+    {% if Recent %}
+    <div class="clear"></div>
+    <div class="grid_12 header">
+      <table class="Data">
+        <thead>
+          <tr>
+            <th colspan="3">My Recent Prints</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="Subheading">
+            <td>{{RecentPrints0.job_title}}</td>
+            <td>{{RecentPrints1.job_title}}</td>
+            <td>{{RecentPrints2.job_title}}</td>
+            <!--<td>Name 1</td>
+            <td>Name 2</td>
+            <td>Name 3</td>-->
+          </tr>
+
+          <tr>
+            <td id={{RecentPrints0.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
+            <td id={{RecentPrints1.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
+            <td id={{RecentPrints2.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+    {% endif %}
+
+    <div class="clear"></div>
+    <div class="grid_2 header"><p></p></div>
+    <div class="grid_8 header">
+      <table class="Data" style="cursor:pointer; border-radius:12px; background-color:#307672; border: 0px;" onclick="location.href='/logout/'">
+        <tbody>
+          <tr>
+            <td style="font-size: 25px; border-radius:6px;">Not your account? Login Here</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!--<h1 class="top heading hover"style="font-size: 25px; cursor:pointer; border-radius:6px;" onclick="location.href='/login/'">Not your account? Login Here:</th1>-->
+    </div>
+
+  </div>
+  {% endblock %}
