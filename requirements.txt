@@ -1,6 +1,0 @@
-openpyxl
-dj-database-url
-django-heroku
-gunicorn
-psycopg2
-whitenoise
