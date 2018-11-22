@@ -192,7 +192,7 @@ def SubmissionRequest(request):
         else:
             return redirect('fail/')
     except Exception as e:
-        print(e)
+        sys.stdout.write(e)
         return redirect('fail/')
 
 @login_required(login_url='/login/')
