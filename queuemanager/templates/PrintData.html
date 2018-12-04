@@ -78,10 +78,10 @@
     {% if user.is_superuser %}
     <div class="grid_6 header">
       <!--<h1 class="top heading" style="cursor:pointer;">Click here to view Django Admin Controls</h1>-->
-      <table class="Data" style="cursor:pointer; border-radius:12px; background-color:#307672; border: 0px;"  onclick="location.href='/printData/download/{{jobid}}'">
+      <table class="Data" style="cursor:pointer; border-radius:12px; background-color:#307672; border: 0px;">
         <tbody>
           <tr>
-            <td style="font-size: 30px; border-radius:6px;">Download</td>
+            <td style="font-size: 30px; border-radius:6px;"> <a href="{{ Job.file_path_stl.url }}" target="_blank">Download</a></td>
           </tr>
         </tbody>
       </table>
