@@ -29,14 +29,14 @@ class Job(models.Model):
     job_title       =models.CharField(max_length=500)
     status          =models.CharField(max_length=20)             #in Queue, Printing, Printed
     colour          =models.CharField(max_length=10, null=True)
-    upload_time     =models.DateTimeField(null=True)
-    print_start_time=models.DateTimeField(null=True)
-    print_end_time  =models.DateTimeField(null=True)
+    upload_time     =models.DateTimeField(null=True,auto_now_add=True)
+    print_start_time=models.DateTimeField(null=True,auto_now_add=True)
+    print_end_time  =models.DateTimeField(null=True,auto_now_add=True)
     print_time      =models.CharField(max_length=20, null=True)
     printer_name    =models.CharField(max_length=20, null=True)
     fk_profile      =models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
-    file_path_stl   =models.FileField(upload_to='candidate-photos')
-    file_path_obj   =models.CharField(max_length=1000, null=True)
+    file_path_stl   =models.FileField(upload_to='stl-uploads')
+    file_path_obj   =models.FileField(upload_to='stl-uploads')
     special_marker  =models.CharField(max_length=20, null=True)
     uploadDate = ''
     startDate = ''
