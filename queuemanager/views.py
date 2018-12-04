@@ -161,10 +161,15 @@ def Submission(request):
         form = JobUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
-            savedForm=form.save()
-            savedForm.status = 'in Queue'
-            savedForm.save()
-            return redirect("success/")
+            newJob=form.save()        
+            newJob.status           = 'in Queue'
+            newJob.upload_time      = datetime.now()
+            newJob.print_start_time = util.getPrintStartTime()
+            newJob.print_end_time   = util.getPrintEndTime(request.FILES['file'])
+            newJob.fk_profile       = util.getProfile(request.user)
+            newJob.printer_name     = util.getPrinterName();
+            newJob.save()
+            return redirect("request/success/")
     else:
         form = JobUploadForm()
 
