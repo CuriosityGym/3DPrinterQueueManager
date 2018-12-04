@@ -249,7 +249,7 @@ def PrintData(request, jobid):
 
     printData = list(Job.objects.filter(job_id=jobid))
 
-    context['filePath'] = "/" + printData[0].file_path_stl
+    context['filePath'] = printData[0].file_path_stl
     context['jobid']    = jobid
 
     return render(request, 'PrintData.html', context)
