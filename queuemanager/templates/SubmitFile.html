@@ -8,44 +8,12 @@
   <div class="container_12">
     <div class="grid_12 header">
 
-      <form method="post" action="request/" enctype="multipart/form-data">
-        {% csrf_token %}
-        <table class="Data Footer">
-          <thead>
-            <tr>
-              <th colspan="2" style="padding:0px 0px 10px 0px;">File Information</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="Field">Print Name:</td>
-              <td><input type="text" name="printName"></td>
-            </tr>
-            <tr>
-              <td class="Field">Colour:</td>
-              <td><input type="text" name="colour"></td>
-            </tr>
-            <tr>
-              <td class="Field">.stl File:</td>
-              <td><input type="file" name="file" style="align: center;"></td>
-            </tr>
-          </tbody>
-          <thead>
-            <tr>
-              <th></th>
-              <th></th>
-            </tr>
-
-            <tr>
-              <th></th>
-              <th></th>
-            </tr>
-
-            <tr>
-              <th colspan="2"><input type="submit" name="Submit" class="Submit"></th>
-            </tr>
-          </thead>
-        </table>
+      
+    <form method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Upload</button>
+ 
       </form>
 
     </div>
