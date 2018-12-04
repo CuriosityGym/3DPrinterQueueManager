@@ -161,9 +161,9 @@ def Submission(request):
         form = JobUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
-            form.save()
-            form.status = 'in Queue'
-            form.save()
+            savedForm=form.save()
+            savedForm.status = 'in Queue'
+            savedForm.save()
             return redirect("success/")
     else:
         form = JobUploadForm()
