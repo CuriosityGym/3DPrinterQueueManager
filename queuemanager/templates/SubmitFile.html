@@ -11,20 +11,31 @@
       
     <form method="post" enctype="multipart/form-data">
 		{% csrf_token %}
-		 <table border="1">
-			{% for field in form.visible_fields %}
-				<tr>
-				<td>{{ field.label_tag }}</td>
-				<td>
+		  <table class="Data Footer">
+          <thead>
+            <tr>
+              <th colspan="2" style="padding:0px 0px 10px 0px;">File Information</th>
+            </tr>
+          </thead>
+          <tbody>
+		  {% for field in form.visible_fields %}
+            <tr>
+              <td class="Field">{{ field.label_tag }}</td>
+              <td>
+					
 					{{ field.errors }}
 					{{ field }}
 					{{ field.help_text }}
-				</td>
-      </tr>
-    {% endfor %}
+			 </td>
+            </tr>	
+				
+				
+			{% endfor %}
+		<tr>
+              <th colspan="2"><input type="submit" name="Submit" class="Submit"></th>
+            </tr>
   </table>
-		<button type="submit">Upload</button>
- 
+		
       </form>
 
     </div>
