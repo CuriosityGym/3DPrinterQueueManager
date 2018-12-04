@@ -13,7 +13,7 @@ from .models import *
 from .Util import *
 from datetime import *
 
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from .forms import CandidateForm
 
 # Create your views here.
