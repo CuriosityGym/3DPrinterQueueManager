@@ -7,3 +7,4 @@ class CandidateForm(ModelForm):
 
     class Meta:
         model = Job
+        fields = ('job_title', 'colour', 'file_path_stl')
