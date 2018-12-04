@@ -11,7 +11,18 @@
       
     <form method="post" enctype="multipart/form-data">
 		{% csrf_token %}
-		{{ form.as_p }}
+		 <table border="1">
+			{% for field in form.visible_fields %}
+				<tr>
+				<td>{{ field.label_tag }}</td>
+				<td>
+					{{ field.errors }}
+					{{ field }}
+					{{ field.help_text }}
+				</td>
+      </tr>
+    {% endfor %}
+  </table>
 		<button type="submit">Upload</button>
  
       </form>
