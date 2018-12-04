@@ -7,7 +7,7 @@ import os
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from .forms import UploadFileForm
+
 
 from .models import *
 from .Util import *
