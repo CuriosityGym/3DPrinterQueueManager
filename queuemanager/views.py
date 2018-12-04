@@ -166,7 +166,7 @@ def Submission(request):
     else:
         form = CandidateForm()
 
-    return render(request, 'SubmitFile.html', {'form': form, context})
+    return render(request, 'SubmitFile.html', {'form': form})
 
 
 def created(request):
