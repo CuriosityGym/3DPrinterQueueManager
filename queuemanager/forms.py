@@ -3,7 +3,7 @@ from django.forms import ModelForm
 from .models import Job
 
 
-class CandidateForm(ModelForm):
+class JobUploadForm(ModelForm):
 
     class Meta:
         model = Job

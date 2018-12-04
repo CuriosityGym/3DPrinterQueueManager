@@ -14,7 +14,7 @@ from .Util import *
 from datetime import *
 
 from django.urls import reverse
-from .forms import CandidateForm
+from .forms import JobUploadForm
 
 # Create your views here.
 
@@ -158,13 +158,13 @@ def Submission(request):
     #return render(request, 'SubmitFile.html', context)
 
     if request.method == 'POST':
-        form = CandidateForm(request.POST, request.FILES)
+        form = JobUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse('created'))
+            return redirect("success/")
     else:
-        form = CandidateForm()
+        form = JobUploadForm()
 
     return render(request, 'SubmitFile.html', {'form': form})
 
