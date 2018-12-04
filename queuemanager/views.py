@@ -161,7 +161,7 @@ def Submission(request):
         form = JobUploadForm(request.POST, request.FILES)
 
         if form.is_valid():
-            printEndTime=util.getPrintEndTime(request.FILES['file'])
+            printEndTime=util.getPrintEndTime(request.FILES['file_path_stl'])
             newJob=form.save()        
             newJob.status           = 'in Queue'
             newJob.upload_time      = datetime.now()
