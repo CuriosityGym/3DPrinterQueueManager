@@ -5,11 +5,16 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 import os
 from django.conf import settings
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from .forms import UploadFileForm
 
 from .models import *
 from .Util import *
 from datetime import *
 
+from django.core.urlresolvers import reverse
+from .forms import CandidateForm
 
 # Create your views here.
 
@@ -150,7 +155,23 @@ def Submission(request):
 
     context = util.getQuota(request.user)
 
-    return render(request, 'SubmitFile.html', context)
+    #return render(request, 'SubmitFile.html', context)
+
+    if request.method == 'POST':
+        form = CandidateForm(request.POST, request.FILES)
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('created'))
+    else:
+        form = CandidateForm()
+
+    return render(request, 'SubmitFile.html', {'form': form, context})
+
+
+def created(request):
+    return render(request, 'thanks.html')
+    
 
 @login_required(login_url='/login/')
 def Preview(request):
@@ -563,3 +584,6 @@ def Printing(request, jobid):
 
 def Infidel(request):
     return HttpResponse("This is the grown up's table! It's not for sneaky idiots like you!<br>I've got to say though, nice try!<br>But now it's time for bed.<br><br>GO <a href='/home'>Home</a>!!!")
+
+
+

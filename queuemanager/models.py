@@ -35,7 +35,7 @@ class Job(models.Model):
     print_time      =models.CharField(max_length=20, null=True)
     printer_name    =models.CharField(max_length=20, null=True)
     fk_profile      =models.ForeignKey(Profile, on_delete=models.CASCADE, null=True)
-    file_path_stl   =models.CharField(max_length=1000, null=True)
+    file_path_stl   =models.FileField(upload_to='candidate-photos')
     file_path_obj   =models.CharField(max_length=1000, null=True)
     special_marker  =models.CharField(max_length=20, null=True)
     uploadDate = ''
