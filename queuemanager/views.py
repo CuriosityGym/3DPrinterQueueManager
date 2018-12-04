@@ -179,7 +179,7 @@ def SubmissionRequest(request):
             newJob.printer_name     = util.getPrinterName();
 
 
-            #newJob.save()
+            newJob.save()
 
             pathSTL, pathOBJ = util.handle_file(request.FILES['file'], request.POST['printName'], request.user, newJob.job_id)
             newJob.file_path_stl = pathSTL
