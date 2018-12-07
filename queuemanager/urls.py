@@ -48,7 +48,7 @@ urlpatterns = [
     #path('accounts/login/', auth_views.LoginView.as_view()),
 
 
-    #CarlSegment
+    #User Guides and Videos
     path('userGuides/', views.UserGuidePage),
 
     #Login

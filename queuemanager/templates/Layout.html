@@ -68,7 +68,7 @@
     <thead>
       <tr>
         <th rowspan = "2" colspan = "1" id="WhiteBack"><a href="https://www.curiositygym.com" target="_blank"><img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'></th>
-        <th rowspan = "2" colspan = "2" style="cursor:pointer; font-size: 35px;" onclick="location.href='/userGuides/'" id="Carl">User Guides and Videos</th>
+        <th rowspan = "2" colspan = "2" style="cursor:pointer; font-size: 35px;" onclick="location.href='/userGuides/'" id="UserGuide">User Guides and Videos</th>
         {% if user.is_authenticated %}
         <th style="cursor:pointer; border:#E4EDDB solid 3px; border-radius:6px;" onclick="location.href='/logout'">LOGOUT</th>
         {% else %}
