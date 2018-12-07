@@ -70,8 +70,8 @@ def Schedule(request):
     prints = []
     printed = []
     if request.user.is_superuser:
-        inQueue  = list(Job.objects.filter(status = "in Queue").order_by('print_start_time'))
-        printing = list(Job.objects.filter(status = "Printing").order_by('print_start_time'))
+        inQueue  = list(Job.objects.filter(status = "in Queue").order_by('-print_start_time'))
+        printing = list(Job.objects.filter(status = "Printing").order_by('-print_start_time'))
 
         for i in range(0, len(inQueue)):
             prints.append(inQueue[i])
