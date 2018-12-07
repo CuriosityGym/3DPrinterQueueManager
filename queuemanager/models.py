@@ -41,6 +41,8 @@ class Job(models.Model):
     uploadDate = ''
     startDate = ''
     endDate = ''
+    class Meta:
+        ordering = ['-print_start_time']
 
     def __str__(self):
         return(self.job_title)
