@@ -49,7 +49,7 @@ urlpatterns = [
 
 
     #CarlSegment
-    path('carlSegment/', views.CarlPage),
+    path('userGuides/', views.UserGuidePage),
 
     #Login
     path('login/', views.Login, name='login'),

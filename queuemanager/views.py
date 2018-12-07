@@ -320,12 +320,11 @@ def Login(request):
 
 
 
-#The Carl Segment
-def CarlPage(request):
+def UserGuidePage(request):
     util = Util()
 
     context = util.getQuota(request.user)
-    return render(request, 'CarlSegment.html', context)
+    return render(request, 'UserGuidePage.html', context)
 
 
 #Login views
