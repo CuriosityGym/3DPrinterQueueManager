@@ -93,20 +93,7 @@ def Schedule(request):
 
         printed  = list(Job.objects.filter(status = "Printed").filter(fk_profile = util.getProfile(request.user)))
 
-    #Sorting the lists
-    for i in range(0, len(prints)):
-        for j in range(0, len(prints) - i - 1):
-            if(prints[j].job_id > prints[j + 1].job_id):
-                temp = prints[j]
-                prints[j] = prints[j + 1]
-                prints[j + 1] = temp
-
-    for i in range(0, len(printed)):
-        for j in range(0, len(printed) - i - 1):
-            if(printed[j].job_id > printed[j + 1].job_id):
-                temp = printed[j]
-                printed[j] = printed[j + 1]
-                printed[j + 1] = temp
+    
 
     #Formatting dates correctly
     for i in range(0, len(prints)):
