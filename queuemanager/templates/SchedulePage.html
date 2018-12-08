@@ -46,7 +46,19 @@
 			<td><a href='{{ inQueue.file_path_stl.url }}'>Download File</a></td>
           </tr>
 		  <tr class="hidden">            
-            <td colspan="3">&nbsp;</td>
+            <td colspan="3">
+			Color Choice: {{inQueue.colour}}
+			</td>
+          </tr>
+		  <tr class="hidden">            
+            <td colspan="3">
+			File Name: {{inQueue.file_path_stl.name}}
+			</td>
+          </tr>
+		  <tr class="hidden">            
+            <td colspan="3">
+			Uploaded By: {{inQueue.endDate}}
+			</td>
           </tr>
           {% endfor %}
 
