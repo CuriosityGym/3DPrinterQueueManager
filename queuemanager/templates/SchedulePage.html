@@ -51,7 +51,7 @@
 					<option>Printing</option>
 					<option>Printed</option>
 				</select>
-				<button type="button" disabled >Save</button>
+				<button type="button" class="status_change_btn" disabled job_id="{{inQueue.job_id}}">Save</button>
 			</td>
 			<td><a href='{{ inQueue.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
           </tr>
