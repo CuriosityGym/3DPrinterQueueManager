@@ -100,22 +100,12 @@ def Schedule(request):
     
 
     #Formatting dates correctly
-    for i in range(0, len(inQueueList)):     
-       
-        day  = inQueueList[i].print_end_time.day
-        month = inQueueList[i].print_end_time.month
-        year  = inQueueList[i].print_end_time.year
-
-        date = str(day) + ' / ' + str(month) + ' / ' + str(year)
+    for i in range(0, len(inQueueList)):       
+        
         inQueueList[i].endDate = inQueueList[i].print_end_time.strftime("%d %B %Y")
 
     for i in range(0, len(printed)):
-        day  = printed[i].print_end_time.day
-        month = printed[i].print_end_time.month
-        year  = printed[i].print_end_time.year
-
-        date = str(day) + ' / ' + str(month) + ' / ' + str(year)
-        printed[i].endDate = date
+        printingList[i].endDate = printingList[i].print_end_time.strftime("%d %B %Y")
 
     util = Util()
 
