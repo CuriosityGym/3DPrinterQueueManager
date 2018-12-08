@@ -22,7 +22,7 @@ from datetime import datetime
 
 #HomePage Views
 @login_required(login_url='/login/')
-def Printing(request):
+def Printing(request, jobid):
     return HttpResponse("A")
 
 
