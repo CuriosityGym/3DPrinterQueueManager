@@ -33,33 +33,28 @@
 
         <tbody>
           <tr class="Subheading">           
-            <td>Print Name</td>            
+            <td>Print Name</td>
+			<td>Owner</td>
             <td>PickUp Date*</td>
-			 <td>&nbsp;</td>
+			<td>Action</td>
+			<td>&nbsp;</td>
+			
           </tr>
 
           {% for inQueue in inQueueContextObject %}
           <tr>            
             <td>{{inQueue.job_title}}</td>
-            
+			<td>{{inQueue.fk_profile}}</td>	           
             <td>{{inQueue.endDate}}</td>
+			<td>
+				<select>
+					<option>Printing</option>
+					<option>Printed</option>
+				</select>
+			</td>
 			<td><a href='{{ inQueue.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
           </tr>
-		  <tr class="hidden">            
-            <td colspan="3">
-			Color Choice: {{inQueue.colour}}
-			</td>
-          </tr>
-		  <tr class="hidden">            
-            <td colspan="3">
-			File Name: {{inQueue.file_path_stl.name}}
-			</td>
-          </tr>
-		  <tr class="hidden">            
-            <td colspan="3">
-			Uploaded By: {{inQueue.fk_profile}}
-			</td>
-          </tr>
+		  
           {% endfor %}
 
         </tbody>
