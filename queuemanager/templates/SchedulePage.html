@@ -23,7 +23,11 @@
       <table class="Data">
         <thead>
           <tr>
+		  {% if user.is_superuser %}
             <th colspan="4">My Print Queue</th>
+		  {% else %}
+			<th colspan="4">My Submitted Prints</th>	
+			{% endif %}	
           </tr>
         </thead>
 
@@ -99,14 +103,14 @@
       <table class="Data">
         <thead>
           <tr>
-            <th colspan="4">My Completed Print</th>
+            <th colspan="4">My Completed Prints</th>
           </tr>
         </thead>
 
         <tbody>
           <tr class="Subheading">
             <td>Print Name</td>            
-            <td>PickUp Date*</td>
+            <td>Completed on</td>
 			 <td>&nbsp;</td>
           </tr>
 
