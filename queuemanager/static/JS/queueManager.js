@@ -9,7 +9,7 @@ $( document ).ready(function() {
 		
 		//console.log($(this).attr('job_id'));
 		job_id=$(this).attr('job_id')
-		formedURL="/changeJobStatus/printing"+job_id
+		formedURL="/changeJobStatus/printing/"+job_id
 		$.ajax({
 				url: formedURL,
 				
