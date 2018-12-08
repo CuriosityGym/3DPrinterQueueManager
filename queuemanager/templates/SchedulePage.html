@@ -23,11 +23,11 @@
       <table class="Data">
         <thead>
           <tr>
-		  {% if user.is_superuser %}
+		  {% if request.user.is_superuser %}
             <th colspan="4">My Print Queue</th>
 		  {% else %}
 			<th colspan="4">My Submitted Prints</th>	
-			{% endif %}	
+		 {% endif %}	
           </tr>
         </thead>
 
