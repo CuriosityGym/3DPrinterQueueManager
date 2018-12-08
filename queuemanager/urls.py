@@ -18,7 +18,7 @@ from django.urls import path
 from . import views,ajaxendpoints
 from django.contrib.auth import views as auth_views
 
-urlpatterns = [,
+urlpatterns = [
 
     #admin
     path('admin/', admin.site.urls),
