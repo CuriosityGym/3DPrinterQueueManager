@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import Context, loader
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
-import os
+import os,sys
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -15,6 +15,8 @@ from datetime import *
 
 from django.urls import reverse
 from .forms import JobUploadForm
+
+from datetime import datetime
 
 # Create your views here.
 
@@ -99,6 +101,9 @@ def Schedule(request):
 
     #Formatting dates correctly
     for i in range(0, len(prints)):
+        
+        print(prints[i].print_end_time.strftime("%a, %d %B, %y"))
+        sys.stdout.flush()
         day  = prints[i].print_end_time.day
         month = prints[i].print_end_time.month
         year  = prints[i].print_end_time.year
