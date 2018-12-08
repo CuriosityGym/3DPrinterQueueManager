@@ -102,12 +102,12 @@ def Schedule(request):
     #Formatting dates correctly
     for i in range(0, len(inQueueList)):       
         
-        inQueueList[i].endDate = inQueueList[i].print_end_time.strftime("%d %B %Y")
+        inQueueList[i].endDate = inQueueList[i].print_end_time.strftime("%d %b %Y")
 
     for i in range(0, len(printingList)):
-        printingList[i].endDate = printingList[i].print_end_time.strftime("%d %B %Y")
+        printingList[i].endDate = printingList[i].print_end_time.strftime("%d %b %Y")
     for i in range(0, len(printed)):
-        printed[i].endDate = printed[i].print_end_time.strftime("%d %B %Y")
+        printed[i].endDate = printed[i].print_end_time.strftime("%d %b %Y")
 
     util = Util()
 
