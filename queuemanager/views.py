@@ -119,8 +119,8 @@ def Schedule(request):
     context = util.getQuota(request.user)
 
     context['Jobs'] = prints
-    context['inQueue'] = inQueueList
-    context['Printing'] = printingList
+    context['inQueueContextObject'] = inQueueList
+    context['PrintingContextObject'] = printingList
     context['Printed'] = printed
 
     #for i in range(0, len(prints)):
