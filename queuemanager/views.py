@@ -107,7 +107,7 @@ def Schedule(request):
         year  = inQueueList[i].print_end_time.year
 
         date = str(day) + ' / ' + str(month) + ' / ' + str(year)
-        inQueueList[i].endDate = inQueueList[i].print_end_time.strftime("%a, %d %B)
+        inQueueList[i].endDate = inQueueList[i].print_end_time.strftime("%a, %d %B")
 
     for i in range(0, len(printed)):
         day  = printed[i].print_end_time.day
