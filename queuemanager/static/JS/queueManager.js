@@ -1,3 +1,6 @@
 $( document ).ready(function() {
-    console.log( "ready!" );
+    
+	$("status_change_dd").change(function(){
+		console.log($(this).id);
+	});
 });
