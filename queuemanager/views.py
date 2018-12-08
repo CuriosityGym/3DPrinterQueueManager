@@ -104,8 +104,10 @@ def Schedule(request):
         
         inQueueList[i].endDate = inQueueList[i].print_end_time.strftime("%d %B %Y")
 
-    for i in range(0, len(printed)):
+    for i in range(0, len(printingList)):
         printingList[i].endDate = printingList[i].print_end_time.strftime("%d %B %Y")
+    for i in range(0, len(printed)):
+        printed[i].endDate = printed[i].print_end_time.strftime("%d %B %Y")
 
     util = Util()
 
