@@ -7,7 +7,17 @@ $( document ).ready(function() {
 	
 	$(".status_change_btn").click(function(){
 		
-		console.log($(this).attr('job_id'));
+		//console.log($(this).attr('job_id'));
+		job_id=$(this).attr('job_id')
+		formedURL="/changeJobStatus/printing"+job_id
+		$.ajax({
+				url: formedURL,
+				
+				}).done(function() {
+					console.log("done")
+					});
+		
+		
 	});
 	
 	

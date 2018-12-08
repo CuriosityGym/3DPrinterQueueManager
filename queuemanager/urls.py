@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from . import views,ajaxendpoints
 from django.contrib.auth import views as auth_views
 
-urlpatterns = [
+urlpatterns = [,
 
     #admin
     path('admin/', admin.site.urls),
@@ -76,6 +76,11 @@ urlpatterns = [
     path('printer/<str:name>', views.Printer),
     path('printer/printed/<int:jobid>', views.Printed),
     path('printer/printing/<int:jobid>', views.Printing),
+
+    #ajax requests end points
+    path('changeJobStatus/printing/<int:jobid>', ajaxendpoints.Printing),
+
+    
 ]
 
 #handler404 = 'views.error_404_view'
