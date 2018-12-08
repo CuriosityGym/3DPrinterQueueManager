@@ -29,8 +29,7 @@
 
         <tbody>
           <tr class="Subheading">           
-            <td>Print Name</td>
-            <td>Status</td>
+            <td>Print Name</td>            
             <td>PickUp Date*</td>
 			 <td>&nbsp;</td>
           </tr>
@@ -38,7 +37,7 @@
           {% for inQueue in inQueueContextObject %}
           <tr>            
             <td>{{inQueue.job_title}}</td>
-            <td>{{inQueue.status}}</td>
+            
             <td>{{inQueue.endDate}}</td>
 			<td><a href='{{ inQueue.file_path_stl.url }}'>Download File</a></td>
           </tr>
@@ -54,6 +53,43 @@
       </table>
       {% else %}
       <h1 class="top heading">You don't seem to have any pending prints</h1>
+      {% endif %}
+    </div>
+    <div class="clear"></div>
+	
+	 <div class="grid_12 header">
+      {% if PrintingContextObject %}
+      <table class="Data">
+        <thead>
+          <tr>
+            <th colspan="4">Currently Printing</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="Subheading">           
+            <td>Print Name</td>            
+            <td>PickUp Date*</td>
+			 <td>&nbsp;</td>
+          </tr>
+
+          {% for printing in PrintingContextObject %}
+          <tr>            
+            <td>{{printing.job_title}}</td>            
+            <td>{{printing.endDate}}</td>
+			<td><a href='{{ printing.file_path_stl.url }}'>Download File</a></td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+
+        <thead>
+          <tr class="FooterNote">
+            <th colspan="4">*PickUp Dates are Approximate</td>
+          </tr>
+        </thead>
+      </table>
+      
       {% endif %}
     </div>
     <div class="clear"></div>
@@ -75,12 +111,12 @@
             <td>PickUp Date*</td>
           </tr>
 
-          {% for Job in Printed %}
+          {% for printedJob in Printed %}
           <tr>
-            <td style="cursor:pointer" onclick="location.href='/printData/{{Job.job_id}}'" class="Hover">{{Job.job_id}}</td>
-            <td>{{Job.job_title}}</td>
-            <td>{{Job.status}}</td>
-            <td>{{Job.endDate}}</td>
+            <td style="cursor:pointer" onclick="location.href='/printData/{{printedJob.job_id}}'" class="Hover">{{printedJob.job_id}}</td>
+            <td>{{printedJob.job_title}}</td>
+            <td>{{printedJob.status}}</td>
+            <td>{{printedJob.endDate}}</td>
           </tr>
           {% endfor %}
 
