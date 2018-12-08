@@ -14,16 +14,19 @@ from .Util import *
 from datetime import *
 
 from django.urls import reverse
-from .forms import JobUploadForm
 
 from datetime import datetime
-
-
 
 #HomePage Views
 @login_required(login_url='/login/')
 def Printing(request, jobid):
-    return HttpResponse("A")
+    if(request.user.is_superuser):
+        Job.objects.filter(job_id=jobid).update(status='Printing')
+        return HttpResponse("Ok")
+        
+        
+    
+    
 
 
 
