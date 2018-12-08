@@ -15,6 +15,7 @@ $( document ).ready(function() {
 				
 				}).done(function() {
 					console.log("done")
+					console.log($(this).parent().parent());
 					$(this).parent().parent().hide();
 					});
 		
