@@ -23,7 +23,7 @@
       <table class="Data">
         <thead>
           <tr>
-            <th colspan="4">My Print Schedule</th>
+            <th colspan="4">My Print Queue</th>
           </tr>
         </thead>
 
@@ -36,11 +36,11 @@
           </tr>
 
           {% for Job in Jobs %}
-          <tr>
-            <td style="cursor:pointer" onclick="location.href='/printData/{{Job.job_id}}'" class="Hover">{{Job.job_id}}</td>
+          <tr>            
             <td>{{Job.job_title}}</td>
             <td>{{Job.status}}</td>
             <td>{{Job.endDate}}</td>
+			<td><a href='{{ Job.file_path_stl.url }}'>Download</a></td>
           </tr>
           {% endfor %}
 
