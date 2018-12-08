@@ -14,12 +14,13 @@ $( document ).ready(function() {
 				url: formedURL,
 				
 				}).done(function() {
-					//console.log("done")
+					console.log("done")
 					$(this).parent().parent().hide();
 					});
 		
 		
 	});
+	
 	
 	
 });
