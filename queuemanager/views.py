@@ -68,16 +68,18 @@ def Schedule(request):
     util = Util()
 
     prints = []
+    inQueueList=[]
+    printingList=[]
     printed = []
     if request.user.is_superuser:
         inQueue  = list(Job.objects.filter(status = "in Queue"))
         printing = list(Job.objects.filter(status = "Printing"))
 
         for i in range(0, len(inQueue)):
-            prints.append(inQueue[i])
+            inQueueList.append(inQueue[i])
 
         for i in range(0, len(printing)):
-            prints.append(printing[i])
+            printingList.append(printing[i])
 
         printed  = list(Job.objects.filter(status = "Printed"))
 
@@ -86,10 +88,10 @@ def Schedule(request):
         printing = list(Job.objects.filter(status = "Printing").filter(fk_profile = util.getProfile(request.user)))
 
         for i in range(0, len(inQueue)):
-            prints.append(inQueue[i])
+            inQueueList.append(inQueue[i])
 
         for i in range(0, len(printing)):
-            prints.append(printing[i])
+            printingList.append(printing[i])
 
         printed  = list(Job.objects.filter(status = "Printed").filter(fk_profile = util.getProfile(request.user)))
 
@@ -117,6 +119,8 @@ def Schedule(request):
     context = util.getQuota(request.user)
 
     context['Jobs'] = prints
+    context['inQueue'] = inQueueList
+    context['Printing'] = printingList
     context['Printed'] = printed
 
     #for i in range(0, len(prints)):

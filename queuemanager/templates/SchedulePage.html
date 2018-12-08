@@ -19,7 +19,7 @@
   {% block content %}
   <div class="container_12">
     <div class="grid_12 header">
-      {% if Jobs %}
+      {% if inQueueContextObject %}
       <table class="Data">
         <thead>
           <tr>
@@ -35,12 +35,12 @@
 			 <td>&nbsp;</td>
           </tr>
 
-          {% for Job in Jobs %}
+          {% for inQueue in inQueueContextObject %}
           <tr>            
-            <td>{{Job.job_title}}</td>
-            <td>{{Job.status}}</td>
-            <td>{{Job.endDate}}</td>
-			<td><a href='{{ Job.file_path_stl.url }}'>Download File</a></td>
+            <td>{{inQueue.job_title}}</td>
+            <td>{{inQueue.status}}</td>
+            <td>{{inQueue.endDate}}</td>
+			<td><a href='{{ inQueue.file_path_stl.url }}'>Download File</a></td>
           </tr>
           {% endfor %}
 
