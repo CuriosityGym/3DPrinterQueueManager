@@ -105,18 +105,16 @@
 
         <tbody>
           <tr class="Subheading">
-            <td>#</td>
-            <td>Print Name</td>
-            <td>Status</td>
+            <td>Print Name</td>            
             <td>PickUp Date*</td>
+			 <td>&nbsp;</td>
           </tr>
 
           {% for printedJob in Printed %}
-          <tr>
-            <td style="cursor:pointer" onclick="location.href='/printData/{{printedJob.job_id}}'" class="Hover">{{printedJob.job_id}}</td>
-            <td>{{printedJob.job_title}}</td>
-            <td>{{printedJob.status}}</td>
+          <tr>            
+            <td>{{printedJob.job_title}}</td>            
             <td>{{printedJob.endDate}}</td>
+			<td><a href='{{ printedJob.file_path_stl.url }}'>Download File</a></td>
           </tr>
           {% endfor %}
 
