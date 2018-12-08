@@ -74,8 +74,8 @@ def Schedule(request):
     printingList=[]
     printed = []
     if request.user.is_superuser:
-        inQueue  = list(Job.objects.filter(status = "in Queue"))
-        printing = list(Job.objects.filter(status = "Printing"))
+        inQueue  = list(Job.objects.filter(status = "in Queue").select_related('user.first_name').select_related('user.last_name'))
+        printing = list(Job.objects.filter(status = "Printing").select_related('user.first_name').select_related('user.last_name'))
 
         for i in range(0, len(inQueue)):
             inQueueList.append(inQueue[i])
