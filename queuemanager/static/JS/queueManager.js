@@ -9,13 +9,14 @@ $( document ).ready(function() {
 		
 		//console.log($(this).attr('job_id'));
 		job_id=$(this).attr('job_id')
+		var myanchor = $(this);
 		formedURL="/changeJobStatus/printing/"+job_id
 		$.ajax({
 				url: formedURL,
 				success:function(data, status, jqXHR) {
 					console.log("done")
-					console.log($(this).parent().parent());
-					$(this).parent().parent().hide();
+					console.log(myanchor.parent().parent());
+					myanchor.parent().parent().hide();
 					}
 				
 				})
