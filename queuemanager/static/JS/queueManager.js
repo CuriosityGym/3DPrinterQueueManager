@@ -31,6 +31,7 @@ $( document ).ready(function() {
 				url: formedURL,
 				success:function(data, status, jqXHR) {
 					console.log(data)
+					$(".printingrow").remove();
 					}
 				
 				})
