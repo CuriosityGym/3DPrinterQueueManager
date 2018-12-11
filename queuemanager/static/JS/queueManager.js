@@ -12,11 +12,11 @@ $( document ).ready(function() {
 		formedURL="/changeJobStatus/printing/"+job_id
 		$.ajax({
 				url: formedURL,
-				success(function() {
+				success:function(data, status, jqXHR) {
 					console.log("done")
 					console.log($(this).parent().parent());
 					$(this).parent().parent().hide();
-					});
+					}
 				
 				})
 		
