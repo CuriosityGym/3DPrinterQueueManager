@@ -79,6 +79,8 @@ urlpatterns = [
 
     #ajax requests end points
     path('changeJobStatus/printing/<int:jobid>', ajaxendpoints.Printing),
+    path('getPrintingList/', ajaxendpoints.getPrintingList),
+    
 
     
 ]

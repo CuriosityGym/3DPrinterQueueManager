@@ -25,8 +25,15 @@ $( document ).ready(function() {
 		
 	});
 	
-	$("body").on( "refreshPrinted", function( event, arg1, arg2 ) {
-			console.log("eventTriggered")
+	$("body").on( "refreshPrinted", function() {
+		formedURL="/getPrintingList"
+			$.ajax({
+				url: formedURL,
+				success:function(data, status, jqXHR) {
+					console.log(data)
+					}
+				
+				})
 		});
 	
 	

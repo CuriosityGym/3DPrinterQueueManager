@@ -17,14 +17,19 @@ from django.urls import reverse
 
 from datetime import datetime
 
-#HomePage Views
+
 @login_required(login_url='/login/')
 def Printing(request, jobid):
     if(request.user.is_superuser):
         #Job.objects.filter(job_id=jobid).update(status='Printing')
         return HttpResponse("Ok")
-        
-        
+
+    
+@login_required(login_url='/login/')
+def getPrintingList(request):
+    if(request.user.is_superuser):
+        #Job.objects.filter(job_id=jobid).update(status='Printing')
+        return HttpResponse("Ok, sending printing list")
     
     
 
