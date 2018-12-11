@@ -17,12 +17,17 @@ $( document ).ready(function() {
 					console.log("done")
 					console.log(myanchor.parent().parent());
 					myanchor.parent().parent().hide();
+					$("body").trigger( "refreshPrinted");
 					}
 				
 				})
 		
 		
 	});
+	
+	$("body").on( "refreshPrinted", function( event, arg1, arg2 ) {
+			console.log("eventTriggered")
+		});
 	
 	
 	
