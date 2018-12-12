@@ -70,12 +70,13 @@
 			//render(); // remove when using next line for animation loop (requestAnimationFrame)
 			animate();
 			function init() {
+				objectDIV=document.getElementById("abc")
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xcccccc );
 				//scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( objectDIV.innerWidth, objectDIV.innerHeight );
 				//document.body.appendChild( renderer.domElement );
 				document.getElementById("abc").appendChild(renderer.domElement)
 				camera = new THREE.PerspectiveCamera( 60, 1, 1, 1000 );
