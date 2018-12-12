@@ -51,7 +51,9 @@
 		<script language="javascript">
 		function returnSTLPath()
 		{
+			{% verbatim %}
 			return "{{filePath.url}}";
+			{% endverbatim %}
 		}
 		</script>
 
@@ -101,8 +103,8 @@
 				// ASCII file
 
 				var loader = new THREE.STLLoader();
-				filePath=unescape(returnSTLPath());
-				loader.load( "https://queue-manager-prints-heroku.s3.amazonaws.com/stl-uploads/GearRotate_0.05mmTolerance.stl?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAICPDA7JPJZGMGEYQ/20181212/ap-south-1/s3/aws4_request&X-Amz-Date=20181212T102316Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=04ec7e9ef39df55d62d43e333a917e1818bea523140dfbf42afdd6c7671d2d37", function ( geometry ) {
+				filePath=returnSTLPath();
+				loader.load( filePath, function ( geometry ) {
 
 					var material = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
 					var mesh = new THREE.Mesh( geometry, material );
