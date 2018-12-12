@@ -81,7 +81,8 @@
 				renderer.setSize( width, height );
 				document.getElementById("3DViewer").appendChild( renderer.domElement );
 				camera = new THREE.PerspectiveCamera( 10, width/height, 1, 1000 );
-				camera.position.set( 0, 0, 0 );
+				
+				camera.position.z = -10
 				// controls
 				controls = new THREE.OrbitControls( camera, renderer.domElement );
 				//controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
@@ -91,6 +92,10 @@
 				controls.minDistance = 15;
 				controls.maxDistance = 1000;
 				controls.maxPolarAngle = 2 * Math.PI;
+				controls.rotateSpeed = 2.0
+				controls.zoomSpeed = 5
+				controls.panSpeed = 2
+				controls.enableZoom = true
 				// world
 				
 				
