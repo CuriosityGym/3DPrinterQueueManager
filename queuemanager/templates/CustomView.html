@@ -167,7 +167,7 @@
 			function init() {
 				scene = new THREE.Scene();
 				scene.background = new THREE.Color( 0xcccccc );
-				scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
+				//scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
@@ -182,7 +182,7 @@
 				controls.screenSpacePanning = false;
 				controls.minDistance = 1;
 				controls.maxDistance = 5000;
-				controls.maxPolarAngle = Math.PI;
+				controls.maxPolarAngle = 2 * Math.PI;
 				// world
 				
 				
