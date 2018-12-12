@@ -1,10 +1,15 @@
 {% extends "Layout.html" %}
+
+{% block pageleveljs %}
 {% load static %}
 	<script src="{% static 'JS/threejs/three.js' %}"></script>
 	<script src="{% static 'JS/threejs/OrbitControls.js' %}"></script>
 	<script src="{% static 'JS/threejs/STLLoader.js' %}"></script>
 	<script src="{% static 'JS/threejs/WebGL.js' %}"></script>
 	<script src="{% static 'JS/3DRendering.js' %}"></script>
+{% endblock %}
+
+
 {% block hiddenVar %}
 
   <input type="hidden" value="1" id="modelNum"></input>
@@ -14,6 +19,7 @@
   {% endautoescape %}
 {% endblock %}
 
+{% block Script %}
 	<script language="javascript">
 		function returnSTLPath()
 		{
@@ -22,6 +28,7 @@
 			{% endautoescape %}
 		}
 	</script>
+{% endblock %}
 
   {% block title %}InnovationHub  |  PrintData{% endblock %}
 

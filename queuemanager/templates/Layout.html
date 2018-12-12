@@ -39,7 +39,7 @@
   <link href="{% static 'CSS/960_12_col.css' %}" rel = "stylesheet" type = "text/css">
   {% endblock %}
 
-  {% block js %}
+  {% block commonjs %}
 	
 
 	<script src="{% static 'JS/jQuery.js' %}"></script>
@@ -54,7 +54,11 @@
   <script src="{% static 'JS/ef.js' %}"></script>
 
   {% endblock %}
-
+  
+  
+  {% block pageleveljs %}
+  
+  {% endblock %}
   {% block Script %}
   {% endblock %}
 
