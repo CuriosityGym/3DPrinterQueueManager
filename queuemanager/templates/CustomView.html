@@ -83,8 +83,8 @@
 				cameraTarget = new THREE.Vector3( 0, - 0.25, 0 );
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0x72645b );
-				scene.fog = new THREE.Fog( 0x72645b, 2, 15 );
+				//scene.background = new THREE.Color( 0x72645b );
+				//scene.fog = new THREE.Fog( 0x72645b, 2, 15 );
 
 
 				// Ground
@@ -126,10 +126,10 @@
 
 				// Lights
 
-				//scene.add( new THREE.HemisphereLight( 0x443333, 0x111122 ) );
+				scene.add( new THREE.HemisphereLight( 0x443333, 0x111122 ) );
 
-				//addShadowedLight( 1, 1, 1, 0xffffff, 1.35 );
-				//addShadowedLight( 0.5, 1, - 1, 0xffaa00, 1 );
+				addShadowedLight( 1, 1, 1, 0xffffff, 1.35 );
+				addShadowedLight( 0.5, 1, - 1, 0xffaa00, 1 );
 				// renderer
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
