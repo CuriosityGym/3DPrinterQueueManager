@@ -40,12 +40,14 @@
 			<a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> -
 			STL loader test by <a href="https://github.com/aleeper" target="_blank" rel="noopener">aleeper</a>. PR2 head from <a href="http://www.ros.org/wiki/pr2_description">www.ros.org</a>
 		</div>
+		{% load static %}
 		<script src="{% static 'JS/threejs/three.js' %}"></script>
 		
 		<script src="{% static 'JS/threejs/STLLoader.js' %}"></script>
 
 		<script src="{% static 'JS/threejs/WebGL.js' %}"></script>
 		<script src="{% static 'JS/threejs/stats.min.js' %}"></script>
+		 {% endblock %}
 		<script language="javascript">
 		function returnSTLPath()
 		{
