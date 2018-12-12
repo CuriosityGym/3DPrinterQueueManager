@@ -4,8 +4,9 @@
 
   <input type="hidden" value="1" id="modelNum"></input>
   <input type="hidden" value={{filePath}} id="modelName1"></input>
-  <input type="hidden" value={{filePath.url}} id="modelURL"></input>
-
+  {% autoescape off %}
+	<input type="hidden" value={{filePath.url}} id="modelURL"></input>
+  {% endautoescape %}
 {% endblock %}
 
 	<script language="javascript">
