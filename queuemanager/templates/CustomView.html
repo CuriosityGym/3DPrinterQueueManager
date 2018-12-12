@@ -51,7 +51,7 @@
 		<script language="javascript">
 		function returnSTLPath()
 		{
-			{% autoescape on %}
+			{% autoescape off %}
 			return "{{filePath.url}}";
 			{% endautoescape %}
 		}
