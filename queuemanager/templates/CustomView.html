@@ -101,7 +101,7 @@
 				// ASCII file
 
 				var loader = new THREE.STLLoader();
-				filePath=returnSTLPath();
+				filePath=unescape(returnSTLPath());
 				loader.load( filePath, function ( geometry ) {
 
 					var material = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
