@@ -197,11 +197,9 @@
 				
 				var loader = new THREE.STLLoader();
 				filePath=returnSTLPath();
-				loader.load( filePath, function ( geometry ) {
-					var geometry = new THREE.CylinderBufferGeometry( 0, 10, 30, 4, 1 );
-					var material = new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } );
+				loader.load( filePath, function ( geometry ) {					
 
-					//var material = new THREE.MeshPhongMaterial( { color: 0x2689a7, specular: 0x111111, shininess: 2 } );
+					var material = new THREE.MeshPhongMaterial( { color: 0x2689a7, specular: 0x111111, shininess: 2 } );
 					var mesh = new THREE.Mesh( geometry, material );
 
 					mesh.position.set( 0, 0, 0 );
