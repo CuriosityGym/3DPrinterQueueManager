@@ -184,9 +184,8 @@
 				controls.maxDistance = 500;
 				controls.maxPolarAngle = Math.PI / 2;
 				// world
-				var geometry = new THREE.CylinderBufferGeometry( 0, 10, 30, 4, 1 );
-				var material = new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } );
-				for ( var i = 0; i < 500; i ++ ) {
+				
+				/*for ( var i = 0; i < 500; i ++ ) {
 					var mesh = new THREE.Mesh( geometry, material );
 					mesh.position.x = Math.random() * 1600 - 800;
 					mesh.position.y = 0;
@@ -194,7 +193,27 @@
 					mesh.updateMatrix();
 					mesh.matrixAutoUpdate = false;
 					scene.add( mesh );
-				}
+				}*/
+				
+				var loader = new THREE.STLLoader();
+				filePath=returnSTLPath();
+				loader.load( filePath, function ( geometry ) {
+					var geometry = new THREE.CylinderBufferGeometry( 0, 10, 30, 4, 1 );
+					var material = new THREE.MeshPhongMaterial( { color: 0xffffff, flatShading: true } );
+
+					//var material = new THREE.MeshPhongMaterial( { color: 0x2689a7, specular: 0x111111, shininess: 2 } );
+					var mesh = new THREE.Mesh( geometry, material );
+
+					mesh.position.set( 0, 0, 0 );
+					mesh.rotation.set( 0, - Math.PI / 2, 0 );
+					mesh.scale.set( 0.01, 0.01,0.01 );
+
+					//mesh.castShadow = true;
+					//mesh.receiveShadow = true;
+
+					scene.add( mesh );
+
+				} );
 				// lights
 				var light = new THREE.DirectionalLight( 0xffffff );
 				light.position.set( 1, 1, 1 );
