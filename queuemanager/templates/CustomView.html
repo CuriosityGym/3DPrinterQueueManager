@@ -51,9 +51,9 @@
 		<script language="javascript">
 		function returnSTLPath()
 		{
-			{% verbatim %}
+			{% autoescape on %}
 			return "{{filePath.url}}";
-			{% endverbatim %}
+			{% endautoescape %}
 		}
 		</script>
 
