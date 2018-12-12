@@ -7,6 +7,15 @@
 
 {% endblock %}
 
+<script language="javascript">
+		function returnSTLPath()
+		{
+			{% autoescape off %}
+			return "{{filePath.url}}";
+			{% endautoescape %}
+		}
+		</script>
+
   {% block title %}InnovationHub  |  PrintData{% endblock %}
 
   {% block heading %}Print Details{% endblock %}
@@ -24,7 +33,7 @@
         </thead>
         <tbody>
           <tr>
-            <td id={{filePath}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
+            <td><div style="3DViewer"id="3DViewer">Loading Model..</div></td>
           </tr>
         </tbody>
       </table>
