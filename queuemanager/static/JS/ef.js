@@ -3,6 +3,7 @@
 //for(let i = 0; i < document.getElementById("modelNum").value; i++) {
 //console.log(document.getElementById("modelName1").value);
 let init = function() {
+return;
   //console.log(document.getElementById("modelNum"));
   let num = document.getElementById("modelNum").value;
   let model = [];
