@@ -579,4 +579,14 @@ def Infidel(request):
     return HttpResponse("This is the grown up's table! It's not for sneaky idiots like you!<br>I've got to say though, nice try!<br>But now it's time for bed.<br><br>GO <a href='/home'>Home</a>!!!")
 
 
+@login_required(login_url='/login/')
+def viewSTL(request, jobid):
+    printData = list(Job.objects.filter(job_id=jobid))    
+    util = Util()
 
+    context = util.getQuota(request.user)
+    context['JobData'] = printData    
+    context['filePath'] = printData[0].file_path_stl
+    context['jobid']    = jobid
+    
+    return render(request, 'CustomView.html', context)

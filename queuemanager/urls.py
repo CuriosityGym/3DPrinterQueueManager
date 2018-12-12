@@ -81,7 +81,8 @@ urlpatterns = [
     path('changeJobStatus/printing/<int:jobid>', ajaxendpoints.Printing),
     path('getPrintingList/', ajaxendpoints.getPrintingList),
     
-
+    #testPaths
+    path('viewSTL/<int:jobid>', views.viewSTL),
     
 ]
 
