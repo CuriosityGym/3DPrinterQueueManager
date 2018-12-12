@@ -74,7 +74,7 @@
 				//scene.fog = new THREE.FogExp2( 0xcccccc, 0.002 );
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setSize( window.innerWidth/2, window.innerHeight/2 );
 				document.body.appendChild( renderer.domElement );
 				camera = new THREE.PerspectiveCamera( 60, window.innerWidth / window.innerHeight, 1, 1000 );
 				camera.position.set( 0, 0, 0 );
@@ -85,7 +85,7 @@
 				controls.dampingFactor = 0.25;
 				controls.screenSpacePanning = false;
 				controls.minDistance = 20;
-				controls.maxDistance = 5000;
+				controls.maxDistance = 1000;
 				controls.maxPolarAngle = 2 * Math.PI;
 				// world
 				
