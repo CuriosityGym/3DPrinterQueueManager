@@ -37,7 +37,7 @@ $(document).ready(function(){
 				
 				
 				var loader = new THREE.STLLoader();
-				filePath=returnSTLPath();
+				filePath=$("#modelURL").val();
 				loader.load( filePath, function ( geometry ) {					
 
 					var material = new THREE.MeshPhongMaterial( { color: 0x2689a7, specular: 0x111111, shininess: 2 } );

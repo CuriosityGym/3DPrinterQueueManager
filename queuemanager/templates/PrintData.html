@@ -4,17 +4,18 @@
 
   <input type="hidden" value="1" id="modelNum"></input>
   <input type="hidden" value={{filePath}} id="modelName1"></input>
+  <input type="hidden" value={{filePath.url}} id="modelURL"></input>
 
 {% endblock %}
 
-<script language="javascript">
+	<script language="javascript">
 		function returnSTLPath()
 		{
 			{% autoescape off %}
 			return "{{filePath.url}}";
 			{% endautoescape %}
 		}
-		</script>
+	</script>
 
   {% block title %}InnovationHub  |  PrintData{% endblock %}
 
