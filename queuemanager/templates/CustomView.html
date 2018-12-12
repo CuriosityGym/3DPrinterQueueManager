@@ -94,7 +94,7 @@
 					new THREE.MeshPhongMaterial( { color: 0x999999, specular: 0x101010 } )
 				);
 				plane.rotation.x = - Math.PI / 2;
-				plane.position.y = - 0.5;
+				plane.position.y = -0.5;
 				scene.add( plane );
 
 				plane.receiveShadow = true;
@@ -106,7 +106,7 @@
 				filePath=returnSTLPath();
 				loader.load( filePath, function ( geometry ) {
 
-					var material = new THREE.MeshPhongMaterial( { color: 0xff5533, specular: 0x111111, shininess: 200 } );
+					var material = new THREE.MeshPhongMaterial( { color: 0x2689a7, specular: 0x111111, shininess: 2 } );
 					var mesh = new THREE.Mesh( geometry, material );
 
 					mesh.position.set( 0, 0, 0 );
