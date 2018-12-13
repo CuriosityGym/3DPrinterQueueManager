@@ -28,7 +28,7 @@ def Printing(request, jobid):
     
 @login_required(login_url='/login/')
 def getPrintingList(request):   
-    
+    printing=[]
     if request.user.is_superuser:        
         printing = list(Job.objects.filter(status = "Printing").select_related("fk_profile"))     
     
