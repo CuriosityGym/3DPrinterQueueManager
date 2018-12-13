@@ -33,7 +33,7 @@ def getPrintingList(request):
         printing = list(Job.objects.filter(status = "Printing").select_related("fk_profile"))     
     
     return HttpResponse(
-        serializers.serialize("json", printing, fields=('job_id','job_title','file_path_stl','print_end_time' )),
+        serializers.serialize("json", printing, fields=('job_id','job_title','file_path_stl.url','print_end_time' )),
         content_type="application/json"
     )
 
