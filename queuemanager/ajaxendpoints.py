@@ -22,7 +22,7 @@ from django.core import serializers
 @login_required(login_url='/login/')
 def Printing(request, jobid):
     if(request.user.is_superuser):
-        #Job.objects.filter(job_id=jobid).update(status='Printing')
+        Job.objects.filter(job_id=jobid).update(status='Printing')
         return HttpResponse("Ok")
 
     
