@@ -38,7 +38,7 @@ def getPrintingList(request):
         for i in range(0, len(printingList)):
             printingList[i].endDate = printingList[i].print_end_time.strftime("%d %b %Y")       
     context['PrintingContextObject'] = printingList
-    return render(request, 'HomePage.html', context)
+    return render(request, 'printingDataTemplate.html', context)
         
 
    
