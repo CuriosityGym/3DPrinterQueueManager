@@ -49,12 +49,21 @@
 			<td>{{inQueue.fk_profile}}</td>	           
             <td>{{inQueue.endDate}}</td>
 			{% if user.is_superuser %}
-			<td>
+			<!--<td>
 				<select job_id="{{inQueue.job_id}}" class="status_change_dd">
 					<option>Printing</option>
 					<option>Printed</option>
 				</select>
 				<button type="button" class="status_change_btn" disabled job_id="{{inQueue.job_id}}">Save</button>
+			</td>-->
+			{% endif %}
+			
+			{% if user.is_superuser %}
+			<td>
+				
+				<button type="button" class="status_change_btn" job_id="{{inQueue.job_id}}" file_url='{{ inQueue.file_path_stl.url }}'>
+					Download and Start Printing
+				</button>
 			</td>
 			{% endif %}
 			<td><a href='{{ inQueue.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>

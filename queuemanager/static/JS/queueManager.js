@@ -8,16 +8,19 @@ $( document ).ready(function() {
 	$(".status_change_btn").click(function(){
 		
 		//console.log($(this).attr('job_id'));
-		job_id=$(this).attr('job_id')
+		job_id=$(this).attr('job_id')		
 		var myanchor = $(this);
 		formedURL="/changeJobStatus/printing/"+job_id
 		$.ajax({
 				url: formedURL,
 				success:function(data, status, jqXHR) {
-					console.log("done")
-				    console.log(myanchor.parent().parent());
+					//console.log("done")
+					file_path_url=$(myanchor).attr('file_url')
+				    //console.log(myanchor.parent().parent());
 					myanchor.parent().parent().hide();
-					$("body").trigger( "refreshPrinted");
+					
+					window.open(file_path_url);
+					$("body").trigger("refreshPrinted");
 					}
 				
 				})
