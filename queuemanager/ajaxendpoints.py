@@ -27,32 +27,13 @@ def Printing(request, jobid):
 
     
 @login_required(login_url='/login/')
-def getPrintingList(request):
+def getPrintingList(request):   
     
-
-      
-   
-    
-    if request.user.is_superuser:
-        
-        printing = list(Job.objects.filter(status = "Printing").select_related("fk_profile"))       
-         
-
-    else:
-        
-        printing = Job.objects.filter(status = "Printing").filter(fk_profile = util.getProfile(request.user))
- 
-        
-
-    
-
-    
-    
-
-    
+    if request.user.is_superuser:        
+        printing = list(Job.objects.filter(status = "Printing").select_related("fk_profile"))     
     
     return HttpResponse(
-        serializers.serialize("json", printing),
+        serializers.serialize("json", printing,fields=('job_id')),
         content_type="application/json"
     )
 

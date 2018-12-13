@@ -30,7 +30,7 @@ $( document ).ready(function() {
 			$.ajax({
 				url: formedURL,
 				success:function(data, status, jqXHR) {
-					console.log(data)
+					//console.log(data)
 					$(".printingrow").remove();
 					}
 				
