@@ -17,8 +17,7 @@ $( document ).ready(function() {
 					//console.log("done")
 					file_path_url=$(myanchor).attr('file_url')
 				    //console.log(myanchor.parent().parent());
-					myanchor.parent().parent().hide();
-					
+					myanchor.parent().parent().hide();					
 					window.open(file_path_url);
 					$("body").trigger("refreshPrinted");
 					}
