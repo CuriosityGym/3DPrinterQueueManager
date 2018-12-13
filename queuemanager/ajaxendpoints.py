@@ -27,15 +27,19 @@ def Printing(request, jobid):
 
     
 @login_required(login_url='/login/')
-def getPrintingList(request):   
-    printing=[]
+def getPrintingList(request):
+    util = Util()
+    context = util.getQuota(request.user)
+    printingList=[]
     if request.user.is_superuser:        
-        printing = list(Job.objects.filter(status = "Printing").select_related("fk_profile"))     
-    
-    return HttpResponse(
-        serializers.serialize("json", printing, fields=('job_id','job_title','file_path_stl.url','print_end_time' )),
-        content_type="application/json"
-    )
+        printing = list(Job.objects.filter(status = "Printing").select_related("fk_profile"))        
+        for i in range(0, len(printing)):
+            printingList.append(printing[i])
+        for i in range(0, len(printingList)):
+            printingList[i].endDate = printingList[i].print_end_time.strftime("%d %b %Y")       
+    context['PrintingContextObject'] = printingList
+    return render(request, 'HomePage.html', context)
+        
 
    
     
