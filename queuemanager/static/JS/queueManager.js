@@ -44,9 +44,15 @@ $( document ).ready(function() {
 		
 		//console.log($(this).attr('job_id'));
 		job_id=$(this).attr('job_id').trim()
-		actionType=$(this).attr('action_type').trim();		
+		actionType=$(this).attr('action_type').trim();
+		switch(actionType):
+		case "completed":
+			printingTimeConsumed=getPrintTimeByPrompt();
+			formedURL="/changeJobStatus/"+actionType+"/"+job_id+"/"+printingTimeConsumed
+		case "failed"
+			formedURL="/changeJobStatus/"+actionType+"/"+job_id
 		var myanchor = $(this);
-		formedURL="/changeJobStatus/"+actionType+"/"+job_id
+		
 		$.ajax({
 				url: formedURL,
 				success:function(data, status, jqXHR) {
@@ -61,3 +67,9 @@ $( document ).ready(function() {
 	
 	
 });
+
+function getPrintTimeByPrompt() {
+    var text;
+    var printTime = prompt("How many minutes did this print take?", "60");
+    return printTime
+}
