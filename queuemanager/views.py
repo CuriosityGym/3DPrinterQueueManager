@@ -84,7 +84,7 @@ def Schedule(request):
         for i in range(0, len(printing)):
             printingList.append(printing[i])
 
-        printed  = list(Job.objects.filter(Q(status="Printed")|(status="Failed")))
+        printed  = list(Job.objects.filter(Q(status="Printed")|Q(status="Failed")))
 
     else:
         inQueue  = list(Job.objects.filter(status = "in Queue").filter(fk_profile = util.getProfile(request.user)))
@@ -96,7 +96,7 @@ def Schedule(request):
         for i in range(0, len(printing)):
             printingList.append(printing[i])
 
-        printed  = list(Job.objects.filter(Q(status="Printed")|(status="Failed")).filter(fk_profile = util.getProfile(request.user)))
+        printed  = list(Job.objects.filter(Q(status="Printed")|Q(status="Failed")).filter(fk_profile = util.getProfile(request.user)))
 
     
 
