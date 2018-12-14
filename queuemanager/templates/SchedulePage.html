@@ -38,9 +38,9 @@
             <td>PickUp Date*</td>
 			{% if user.is_superuser %}
 			<td>Action</td>
-			{% endif %}
+			{% else %}
 			<td>&nbsp;</td>
-			
+			{% endif %}
           </tr>
 
           {% for inQueue in inQueueContextObject %}
@@ -98,7 +98,18 @@
           <tr class="printingrow">            
             <td>{{printing.job_title}}</td>            
             <td>{{printing.endDate}}</td>
-			<td><a href='{{ printing.file_path_stl.url }}'>Download File</a></td>
+			{% if user.is_superuser %}
+			<td>				
+				<button type="button" class="Completed_btn" job_id="{{printing.job_id}}" file_url='{{ printing.file_path_stl.url }}'>
+					Mark as Completed
+				</button>
+				<button type="button" class="Failed_btn" job_id="{{printing.job_id}}" file_url='{{ printing.file_path_stl.url }}'>
+					Mark as Failed
+				</button>
+			</td>
+			{% else %}
+				<td><a href='{{ printing.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
+			{% endif %}
           </tr>
           {% endfor %}
 
