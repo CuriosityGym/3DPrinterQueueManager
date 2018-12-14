@@ -45,7 +45,11 @@ $( document ).ready(function() {
 		//console.log($(this).attr('job_id'));
 		job_id=$(this).attr('job_id').trim()
 		actionType=$(this).attr('action_type').trim();
+		
 		var dataToBeSent={};
+		var csrftoken = getCookie('csrftoken');
+		var customHeaders={}
+		customHeaders["X-CSRFToken"]=csrftoken;
 		switch(actionType){
 		case "completed":
 			printingTimeConsumed=getPrintTimeByPrompt();
@@ -64,6 +68,7 @@ $( document ).ready(function() {
 				url: formedURL,
 				data:dataToBeSent,
 				method:"POST",
+				headers:customHeaders,
 				success:function(data, status, jqXHR) {
 					console.log("done")		
 					$(myanchor).parent().parent().remove();		
@@ -82,4 +87,21 @@ function getPrintTimeByPrompt() {
     var text;
     var printTime = prompt("How many minutes did this print take?", "60");
     return printTime
+}
+
+// using jQuery
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
