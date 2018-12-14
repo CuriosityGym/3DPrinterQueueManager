@@ -1,0 +1,16 @@
+{% for printing in PrintingContextObject %}
+<tr class="printingrow">            
+<td><a href="/printData/{{printing.job_id}}">{{printing.job_title}}</a></td>            
+<td>{{printing.endDate}}</td>
+{% if user.is_superuser %}
+	<td>				
+		<img height='64px' job_id="{{printing.job_id}}" class="img_link" action_type="completed" title="Mark as Completed" src="{% static 'Images/completed.png' %}"/>
+	</td>
+	<td>			
+		<img height='64px' job_id="{{printing.job_id}}" class= "img_link" action_type="failed" title ="Mark as Failed" src="{% static 'Images/failed.png' %}"/>
+	</td>
+{% else %}
+	<td><a href='{{ printing.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
+{% endif %}
+</tr>
+{% endfor %}
