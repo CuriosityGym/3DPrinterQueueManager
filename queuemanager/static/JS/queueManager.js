@@ -49,7 +49,7 @@ $( document ).ready(function() {
 		case "completed":
 			printingTimeConsumed=getPrintTimeByPrompt();
 			formedURL="/changeJobStatus/"+actionType+"/"+job_id+"/"+printingTimeConsumed
-		case "failed"
+		case "failed":
 			formedURL="/changeJobStatus/"+actionType+"/"+job_id
 		default:
 			//Do nothing
