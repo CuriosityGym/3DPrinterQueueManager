@@ -5,3 +5,8 @@ a{
 .hidden{
 	display:none;
 }
+
+.img_link
+{
+	cursor: pointer;
+}
