@@ -80,7 +80,7 @@ urlpatterns = [
     #ajax requests end points
     path('changeJobStatus/printing/<int:jobid>', ajaxendpoints.Printing),
     path('getPrintingList/', ajaxendpoints.getPrintingList),
-    path('changeJobStatus/completed/<int:jobid>/<int:printtime>', ajaxendpoints.PrintedCompleted),
+    path('changeJobStatus/completed/<int:jobid>/<int:printtime>/', ajaxendpoints.PrintedCompleted),
     path('changeJobStatus/failed/<int:jobid>', ajaxendpoints.PrintedFailed),
     
     #testPaths
