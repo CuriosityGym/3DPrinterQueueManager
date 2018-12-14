@@ -20,9 +20,10 @@ from django.core import serializers
 
 
 @login_required(login_url='/login/')
-def Printing(request, jobid, printtime):
+def Printing(request, jobid):
     if(request.user.is_superuser):
-        Job.objects.filter(job_id=jobid).update(status='Printing',print_time=printtime)
+        printTime = request.POST['printTime']
+        Job.objects.filter(job_id=jobid).update(status='Printing',print_time=printTime)
         return HttpResponse("Ok")
 
 @login_required(login_url='/login/')
