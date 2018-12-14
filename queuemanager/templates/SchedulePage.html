@@ -45,7 +45,7 @@
 
           {% for inQueue in inQueueContextObject %}
           <tr>            
-            <td>{{inQueue.job_title}}</td>
+            <td><a href="/printData/{{printing.job_id}}">{{inQueue.job_title}}</a></td>
 			<td>{{inQueue.fk_profile}}</td>	           
             <td>{{inQueue.endDate}}</td>
 			
@@ -101,7 +101,7 @@
 
           {% for printing in PrintingContextObject %}
           <tr class="printingrow">            
-            <td>{{printing.job_title}}</td>            
+            <td><a href="/printData/{{printing.job_id}}">{{printing.job_title}}</a></td>            
             <td>{{printing.endDate}}</td>
 			{% if user.is_superuser %}
 			<td>				
