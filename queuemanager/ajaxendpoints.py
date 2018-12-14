@@ -39,7 +39,7 @@ def PrintedCompleted(request, jobid):
 @login_required(login_url='/login/')
 def PrintedFailed(request, jobid):
     if(request.user.is_superuser):
-        Job.objects.filter(job_id=jobid).update(status='Failed',print_time=0)
+        Job.objects.filter(job_id=jobid).update(status='Failed',print_time=60)
         return HttpResponse("Ok")
 
     
