@@ -66,10 +66,10 @@ $(document).ready(function(){
 				window.addEventListener( 'resize', onWindowResize, false );
 			}
 			function onWindowResize() {
-				camera.aspect = width/height;
-				camera.updateProjectionMatrix();
-				scaling=window.innerWidth/window.innerHeight;
-				renderer.setSize( width*scaling, height*scaling );
+				//camera.aspect = width/height;
+				//camera.updateProjectionMatrix();
+				//scaling=window.innerWidth/window.innerHeight;
+				//renderer.setSize( width*scaling, height*scaling );
 			}
 			function animate() {
 				requestAnimationFrame( animate );
