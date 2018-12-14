@@ -105,10 +105,10 @@
             <td>{{printing.endDate}}</td>
 			{% if user.is_superuser %}
 			<td>				
-				<img height='64px' title ="Mark as Completed" src="{% static 'Images/completed.png' %}"/>
+				<a onclick="markCompleted()"><img height='64px' title ="Mark as Completed" src="{% static 'Images/completed.png' %}"/><a>
 			</td>
 			<td>			
-				<img height='64px' title ="Mark as Failed" src="{% static 'Images/failed.png' %}"/>
+				<a onclick="markFailed()"><img height='64px' title ="Mark as Failed" src="{% static 'Images/failed.png' %}"/></a>
 			</td>
 			{% else %}
 				<td><a href='{{ printing.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
