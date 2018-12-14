@@ -44,7 +44,7 @@ $( document ).ready(function() {
 		
 		//console.log($(this).attr('job_id'));
 		job_id=$(this).attr('job_id').trim()
-		actionType=$(this).attr('failed').trim()		
+		actionType=$(this).attr('action_type').trim();		
 		var myanchor = $(this);
 		formedURL="/changeJobStatus/"+actionType+"/"+job_id
 		$.ajax({
