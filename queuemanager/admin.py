@@ -15,7 +15,7 @@ admin.site.register(Profile)
 class UserResource(resources.ModelResource):
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'email', 'quota')
+        fields = ('first_name', 'last_name', 'email', 'profile__quota')
 
 class UserAdmin(BaseAdmin, ImportExportModelAdmin):
     resource_class = UserResource
