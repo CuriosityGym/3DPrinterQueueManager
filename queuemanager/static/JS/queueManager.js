@@ -48,6 +48,7 @@ $( document ).ready(function() {
 		switch(actionType){
 		case "completed":
 			printingTimeConsumed=getPrintTimeByPrompt();
+			console.log(printingTimeConsumed);
 			formedURL="/changeJobStatus/"+actionType+"/"+job_id+"/"+printingTimeConsumed
 		case "failed":
 			formedURL="/changeJobStatus/"+actionType+"/"+job_id
