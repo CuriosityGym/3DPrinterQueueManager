@@ -45,12 +45,15 @@ $( document ).ready(function() {
 		//console.log($(this).attr('job_id'));
 		job_id=$(this).attr('job_id').trim()
 		actionType=$(this).attr('action_type').trim();
-		switch(actionType):
+		switch(actionType){}
 		case "completed":
 			printingTimeConsumed=getPrintTimeByPrompt();
 			formedURL="/changeJobStatus/"+actionType+"/"+job_id+"/"+printingTimeConsumed
 		case "failed"
 			formedURL="/changeJobStatus/"+actionType+"/"+job_id
+		default:
+			//Do nothing
+		}	
 		var myanchor = $(this);
 		
 		$.ajax({
