@@ -22,7 +22,7 @@ from django.core import serializers
 @login_required(login_url='/login/')
 def Printing(request, jobid):
     if(request.user.is_superuser):
-        printTime = request.POST['printTime']
+        
         Job.objects.filter(job_id=jobid).update(status='Printing',print_time=printTime)
         return HttpResponse("Ok")
 
@@ -31,7 +31,8 @@ def Printing(request, jobid):
 @login_required(login_url='/login/')
 def PrintedCompleted(request, jobid):
     if(request.user.is_superuser):
-        Job.objects.filter(job_id=jobid).update(status='Printed',print_time=0)
+        printTime = request.POST['printTime']
+        Job.objects.filter(job_id=jobid).update(status='Printed',print_time=printTime)
         return HttpResponse("Ok")
 
     
