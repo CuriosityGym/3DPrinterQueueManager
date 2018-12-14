@@ -40,7 +40,7 @@ $( document ).ready(function() {
 				})
 		});
 		
-		$(".img_link").click(function(){
+		$(".img_link").on("click", function(){
 		
 		//console.log($(this).attr('job_id'));
 		job_id=$(this).attr('job_id').trim()
