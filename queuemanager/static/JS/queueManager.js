@@ -56,7 +56,8 @@ $( document ).ready(function() {
 		$.ajax({
 				url: formedURL,
 				success:function(data, status, jqXHR) {
-					console.log("done")					
+					console.log("done")		
+					$(myanchor).parent().parent().remove();		
 					}
 				
 				})
