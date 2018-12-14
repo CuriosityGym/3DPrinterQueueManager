@@ -39,6 +39,24 @@ $( document ).ready(function() {
 				
 				})
 		});
+		
+		$(".img_link").click(function(){
+		
+		//console.log($(this).attr('job_id'));
+		job_id=$(this).attr('job_id').trim()
+		actionType=$(this).attr('failed').trim()		
+		var myanchor = $(this);
+		formedURL="/changeJobStatus/"+actionType+"/"+job_id
+		$.ajax({
+				url: formedURL,
+				success:function(data, status, jqXHR) {
+					console.log("done")					
+					}
+				
+				})
+		
+		
+	});
 	
 	
 	
