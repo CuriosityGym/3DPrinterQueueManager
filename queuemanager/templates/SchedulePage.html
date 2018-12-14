@@ -1,5 +1,7 @@
 {% extends "Layout.html" %}
 {% include "Sections.html" %}
+{% block hacky %}
+
 {% load static %}
 {% block hiddenVar %}
   {% if Recent %}
@@ -216,8 +218,7 @@
       </table>
     </div>
     <div class="clear"></div>
-	{% block hacky %}
-	{% endblock %}
+	
     {% endif %}
   </div>
   {% endblock %}
