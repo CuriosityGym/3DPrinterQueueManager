@@ -17,7 +17,7 @@ from django.urls import reverse
 from .forms import JobUploadForm
 
 from datetime import datetime
-import django.db.models.Q
+
 
 # Create your views here.
 
