@@ -20,5 +20,5 @@ class ProfileResource(resources.ModelResource):
 class ProfileAdmin(ImportExportModelAdmin):
     resource_class = ProfileResource
 
-admin.site.unregister(Profile)
+
 admin.site.register(Profile, ProfileAdmin)
