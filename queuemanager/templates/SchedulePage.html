@@ -19,7 +19,7 @@
   {% block content %}
   
   <div class="container_12">
-  {% if request.user.is_superuser %} <!-- Page is differently printed if it is super user -->
+  
     {% include "inQueueDataTemplate.html" %}
 	
 	
@@ -115,6 +115,6 @@
 
     
   </div>
-  <% else %> 
+
   
   {% endblock %}
