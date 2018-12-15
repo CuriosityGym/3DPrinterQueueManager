@@ -17,124 +17,16 @@
   {% block heading %}Schedule{% endblock %}
 
   {% block content %}
-  <div class="container_12">
-    <!--<div class="grid_12 header">
-      {% if inQueueContextObject %}
-      <table class="Data">
-        <thead>
-          <tr>
-		  {% if request.user.is_superuser %}
-            <th colspan="4">My Print Queue</th>
-		  {% else %}
-			<th colspan="4">My Submitted Prints</th>	
-		 {% endif %}	
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr class="Subheading">           
-            <td>Print Name</td>
-			<td>Owner</td>
-            <td>PickUp Date*</td>
-			{% if user.is_superuser %}
-			<td>Action</td>
-			{% else %}
-			<td>&nbsp;</td>
-			{% endif %}
-          </tr>
-
-          {% for inQueue in inQueueContextObject %}
-          <tr>            
-            <td><a href="/printData/{{inQueue.job_id}}">{{inQueue.job_title}}</a></td>
-			<td>{{inQueue.fk_profile}}</td>	           
-            <td>{{inQueue.endDate}}</td>
-			
-			
-			{% if user.is_superuser %}
-			<td>				
-				<button type="button" class="status_change_btn" job_id="{{inQueue.job_id}}" file_url='{{ inQueue.file_path_stl.url }}'>
-					Download and Start Printing
-				</button>
-			</td>
-			{% else %}
-				<td><a href='{{ inQueue.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
-			{% endif %}
-			
-          </tr>
-		  
-          {% endfor %}
-
-        </tbody>
-
-        <thead>
-          <tr class="FooterNote">
-            <th colspan="4">*PickUp Dates are Approximate</td>
-          </tr>
-        </thead>
-      </table>
-      {% else %}
-      <h1 class="top heading">You don't seem to have any pending prints</h1>
-      {% endif %}
-    </div>
-    <div class="clear"></div>-->
-	
-	{% include "inQueueDataTemplate.html" %}
-	{% include "printingDataTemplate.html" %}
-	{% include "printedDataTemplate.html" %}
-	{% include "printedDataTemplate.html" %}
-	
-	 
-
+  <div class="container_12">    
+	{% if request.user.is_superuser %}
+		{% include "inQueueDataTemplate.html" %}
+		{% include "printingDataTemplate.html" %}
+		{% include "printedDataTemplate.html" %}
+	{% else %}
+		{% include "printedDataTemplate.html" %}
+		{% include "printingDataTemplate.html" %}
+		{% include "inQueueDataTemplate.html" %}
+	{% endif %}   
     
-
-    {% if Recent %}
-    <div class="clear"></div>
-    <div class="grid_12 header">
-      <table class="Data">
-        <thead>
-          <tr>
-            <th colspan="3">My Recent Prints</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr class="Subheading">
-            <td>{{RecentPrints0.job_title}}</td>
-            <td>{{RecentPrints1.job_title}}</td>
-            <td>{{RecentPrints2.job_title}}</td>
-            <!--<td>Name 1</td>
-            <td>Name 2</td>
-            <td>Name 3</td>-->
-          </tr>
-
-          <tr>
-            <td id={{RecentPrints0.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
-            <td id={{RecentPrints1.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
-            <td id={{RecentPrints2.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
-          </tr>
-        </tbody>
-
-      </table>
-    </div>
-    {% endif %}
-
-    <div class="clear"></div>
-    {% if user.is_superuser %}
-
-    <div class="grid_12 header">
-      <!--<h1 class="top heading" style="cursor:pointer;">Click here to view Django Admin Controls</h1>-->
-      <table class="Data" style="cursor:pointer; border-radius:12px; background-color:#307672; border: 0px;" >
-        <tbody>
-          <tr>
-            <td style="font-size: 30px; border-radius:6px;">
-				<a href='/admin/'>Click here to view Django Admin Controls</a>
-			</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="clear"></div>
-
-    {% endif %}
   </div>
   {% endblock %}
