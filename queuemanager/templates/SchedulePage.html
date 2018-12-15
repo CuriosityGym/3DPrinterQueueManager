@@ -1,14 +1,6 @@
 {% extends "Layout.html" %}
 {% load static %}
-{% block hiddenVar %}
-  {% if Recent %}
-  <input type="hidden" value="3" id="modelNum"></input>
-  <input type="hidden" value={{RecentPrints0.file_path_obj}} id="modelName1"></input>
-  <input type="hidden" value={{RecentPrints1.file_path_obj}} id="modelName2"></input>
-  <input type="hidden" value={{RecentPrints2.file_path_obj}} id="modelName3"></input>
-  {% else %}
-  <input type="hidden" value="0" id="modelNum"></input>
-  {% endif %}
+{% block hiddenVar %} 
 
 {% endblock %}
 
