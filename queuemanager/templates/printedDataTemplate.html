@@ -1,5 +1,7 @@
-{% extends "SchedulePage.html" %}
-{% if Printed %}
+{% load static %}
+
+<div class="grid_12 header">
+      {% if Printed %}
       <table class="Data">
         <thead>
           <tr>
@@ -35,3 +37,5 @@
       {% else %}
       <h1 class="top heading">You don't seem to have any completed prints</h1>
       {% endif %}
+    </div>
+<div class="clear"></div>	

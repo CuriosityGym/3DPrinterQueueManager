@@ -1,16 +1,51 @@
-{% for printing in PrintingContextObject %}
-<tr class="printingrow">            
-<td><a href="/printData/{{printing.job_id}}">{{printing.job_title}}</a></td>            
-<td>{{printing.endDate}}</td>
-{% if user.is_superuser %}
-	<td>				
-		<img height='64px' job_id="{{printing.job_id}}" class="img_link" action_type="completed" title="Mark as Completed" src="{% static 'Images/completed.png' %}"/>
-	</td>
-	<td>			
-		<img height='64px' job_id="{{printing.job_id}}" class= "img_link" action_type="failed" title ="Mark as Failed" src="{% static 'Images/failed.png' %}"/>
-	</td>
-{% else %}
-	<td><a href='{{ printing.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
-{% endif %}
-</tr>
-{% endfor %}
+{% load static %}
+<div class="grid_12 header">
+      {% if PrintingContextObject %}
+      <table class="Data">
+        <thead>
+          <tr>
+            <th colspan="4">Currently Printing</th>
+          </tr>
+        </thead>
+
+        <tbody class="printingTableBody">
+          <tr class="Subheading">           
+            <td>Print Name</td>            
+            <td>PickUp Date*</td>
+			{% if user.is_superuser %}
+			 <td>Mark Completed</td>
+			 <td>Mark Failed</td>
+			 {% else %}
+			 <td>&nbsp;</td>
+			 {% endif %}
+          </tr>
+
+          {% for printing in PrintingContextObject %}
+          <tr class="printingrow">            
+            <td><a href="/printData/{{printing.job_id}}">{{printing.job_title}}</a></td>            
+            <td>{{printing.endDate}}</td>
+			{% if user.is_superuser %}
+			<td>				
+				<img height='64px' job_id="{{printing.job_id}}" class="img_link" action_type="completed" title="Mark as Completed" src="{% static 'Images/completed.png' %}"/>
+			</td>
+			<td>			
+				<img height='64px' job_id="{{printing.job_id}}" class= "img_link" action_type="failed" title ="Mark as Failed" src="{% static 'Images/failed.png' %}"/>
+			</td>
+			{% else %}
+				<td><a href='{{ printing.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
+			{% endif %}
+          </tr>
+          {% endfor %}
+
+        </tbody>
+
+        <thead>
+          <tr class="FooterNote">
+            <th colspan="4">*PickUp Dates are Approximate</td>
+          </tr>
+        </thead>
+      </table>
+      
+      {% endif %}
+    </div>
+    <div class="clear"></div>
