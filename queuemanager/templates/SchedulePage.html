@@ -15,10 +15,10 @@
   {% block title %}InnovationHub  |  Schedule{% endblock %}
 
   {% block heading %}Schedule{% endblock %}
-  
-  
-  {% block inQueueSU, inQueueCU %}
-  <div class="grid_12 header">
+
+  {% block content %}
+  <div class="container_12">
+    <div class="grid_12 header">
       {% if inQueueContextObject %}
       <table class="Data">
         <thead>
@@ -77,4 +77,145 @@
       {% endif %}
     </div>
     <div class="clear"></div>
-{% endblock %}
+	
+	 <div class="grid_12 header">
+      {% if PrintingContextObject %}
+      <table class="Data">
+        <thead>
+          <tr>
+            <th colspan="4">Currently Printing</th>
+          </tr>
+        </thead>
+
+        <tbody class="printingTableBody">
+          <tr class="Subheading">           
+            <td>Print Name</td>            
+            <td>PickUp Date*</td>
+			{% if user.is_superuser %}
+			 <td>Mark Completed</td>
+			 <td>Mark Failed</td>
+			 {% else %}
+			 <td>&nbsp;</td>
+			 {% endif %}
+          </tr>
+
+          {% for printing in PrintingContextObject %}
+          <tr class="printingrow">            
+            <td><a href="/printData/{{printing.job_id}}">{{printing.job_title}}</a></td>            
+            <td>{{printing.endDate}}</td>
+			{% if user.is_superuser %}
+			<td>				
+				<img height='64px' job_id="{{printing.job_id}}" class="img_link" action_type="completed" title="Mark as Completed" src="{% static 'Images/completed.png' %}"/>
+			</td>
+			<td>			
+				<img height='64px' job_id="{{printing.job_id}}" class= "img_link" action_type="failed" title ="Mark as Failed" src="{% static 'Images/failed.png' %}"/>
+			</td>
+			{% else %}
+				<td><a href='{{ printing.file_path_stl.url }}'><img height='64px' title ="Download" src="{% static 'Images/download.png' %}"/></a></td>
+			{% endif %}
+          </tr>
+          {% endfor %}
+
+        </tbody>
+
+        <thead>
+          <tr class="FooterNote">
+            <th colspan="4">*PickUp Dates are Approximate</td>
+          </tr>
+        </thead>
+      </table>
+      
+      {% endif %}
+    </div>
+    <div class="clear"></div>
+
+    <div class="grid_12 header">
+      {% if Printed %}
+      <table class="Data">
+        <thead>
+          <tr>
+            <th colspan="4">My Completed Prints</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="Subheading">
+            <td>Print Name</td>   
+			<td>Status</td>		
+			<td>Print Time(in minutes)</td>			
+			 <td>&nbsp;</td>
+          </tr>
+
+          {% for printedJob in Printed %}
+          <tr>            
+            <td>{{printedJob.job_title}}</td>            
+            <td>{{printedJob.status}}</td>
+			<td>{{printedJob.print_time}}</td>
+			<td><a href='{{ printedJob.file_path_stl.url }}'>Download File</a></td>
+          </tr>
+          {% endfor %}
+
+        </tbody>
+
+        <thead>
+          <tr class="FooterNote">
+            <th colspan="4">*PickUp Dates are Approximate</td>
+          </tr>
+        </thead>
+      </table>
+      {% else %}
+      <h1 class="top heading">You don't seem to have any completed prints</h1>
+      {% endif %}
+    </div>
+
+    {% if Recent %}
+    <div class="clear"></div>
+    <div class="grid_12 header">
+      <table class="Data">
+        <thead>
+          <tr>
+            <th colspan="3">My Recent Prints</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="Subheading">
+            <td>{{RecentPrints0.job_title}}</td>
+            <td>{{RecentPrints1.job_title}}</td>
+            <td>{{RecentPrints2.job_title}}</td>
+            <!--<td>Name 1</td>
+            <td>Name 2</td>
+            <td>Name 3</td>-->
+          </tr>
+
+          <tr>
+            <td id={{RecentPrints0.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
+            <td id={{RecentPrints1.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
+            <td id={{RecentPrints2.file_path_obj}} style="background:#E4EDDB;"><!--<img class='logo' src = "{% static 'Images/CuriosityGymLogo.png' %}" alt = 'Curiosity Gym'>--></td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+    {% endif %}
+
+    <div class="clear"></div>
+    {% if user.is_superuser %}
+
+    <div class="grid_12 header">
+      <!--<h1 class="top heading" style="cursor:pointer;">Click here to view Django Admin Controls</h1>-->
+      <table class="Data" style="cursor:pointer; border-radius:12px; background-color:#307672; border: 0px;" >
+        <tbody>
+          <tr>
+            <td style="font-size: 30px; border-radius:6px;">
+				<a href='/admin/'>Click here to view Django Admin Controls</a>
+			</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="clear"></div>
+
+    {% endif %}
+  </div>
+  {% endblock %}
