@@ -11,13 +11,35 @@
   {% block content %}
   <div class="container_12">    
 	{% if request.user.is_superuser %}
-		{% include "inQueueDataTemplate.html" %}
-		{% include "printingDataTemplate.html" %}
-		{% include "printedDataTemplate.html" %}
+		<div class="grid_12 header ">
+			{% include "inQueueDataTemplate.html" %}
+		</div>
+		<div class="clear"></div>	
+		
+		<div class="grid_12 header printingDataSection">
+			{% include "printingDataTemplate.html" %}
+		</div>
+		<div class="clear"></div>
+		
+		<div class="grid_12 header ">
+			{% include "printedDataTemplate.html" %}
+		</div>
+		<div class="clear"></div>
 	{% else %}
-		{% include "printedDataTemplate.html" %}
-		{% include "printingDataTemplate.html" %}
-		{% include "inQueueDataTemplate.html" %}
+		<div class="grid_12 header ">
+			{% include "printedDataTemplate.html" %}
+		</div>
+		<div class="clear"></div>
+		
+		<div class="grid_12 header printingDataSection">
+			{% include "printingDataTemplate.html" %}
+		</div>
+		<div class="clear"></div>
+		
+		<div class="grid_12 header ">
+			{% include "inQueueDataTemplate.html" %}
+		</div>
+		<div class="clear"></div>	
 	{% endif %}   
     
   </div>
