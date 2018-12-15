@@ -15,7 +15,7 @@ admin.site.register(RecentPrint)
 class ProfileResource(resources.ModelResource):
     class Meta:
         model = Profile
-        fields=('user__id', 'user__password','user__username','user__first_name','last_name','email', 'profile__quota', 'profile__grade')
+        fields=('user__id', 'user__password','user__username','user__first_name','user__last_name','user__email', 'quota', 'grade')
         
 class ProfileAdmin(ImportExportModelAdmin):
     resource_class = ProfileResource
