@@ -18,7 +18,7 @@
 
   {% block content %}
   <div class="container_12">
-    <div class="grid_12 header">
+    <!--<div class="grid_12 header">
       {% if inQueueContextObject %}
       <table class="Data">
         <thead>
@@ -76,7 +76,9 @@
       <h1 class="top heading">You don't seem to have any pending prints</h1>
       {% endif %}
     </div>
-    <div class="clear"></div>
+    <div class="clear"></div>-->
+	
+	{% include inQueueDataTemplate.html %}
 	
 	 <div class="grid_12 header">
       {% if PrintingContextObject %}
