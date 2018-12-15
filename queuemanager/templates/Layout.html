@@ -131,14 +131,14 @@
   {% if request.user.is_superuser %}
 	
 	
-	{% block inQueue %}{% endblock %}
+	{% block inQueueSU %}{% endblock %}
 	
-	{% block currentlyPrinting %}{% endblock %}
-	{% block printed %}{% endblock %}
+	{% block currentlyPrintingSU %}{% endblock %}
+	{% block printedSU %}{% endblock %}
   {%else%}
-	{% block printed %}{% endblock %}
-	{% block currentlyPrinting %}{% endblock %}
-	{% block inQueue %}{% endblock %}
+	{% block printedCU %}{% endblock %}
+	{% block currentlyPrintingCU %}{% endblock %}
+	{% block inQueueCU %}{% endblock %}
   {%endif%}
 
   {% block footer %}
