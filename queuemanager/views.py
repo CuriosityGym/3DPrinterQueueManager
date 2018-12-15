@@ -131,7 +131,7 @@ def Schedule(request):
     else :
         context['Recent'] = False
 
-    return render(request, 'SchedulePage.html', context)
+    return render(request, 'Sections.html', context)
 
 
 
