@@ -128,6 +128,18 @@
   </div>
 
   {% block content %}{% endblock %}
+  {% if request.user.is_superuser %}
+	
+	
+	{% block inQueue %}{% endblock %}
+	
+	{% block currentlyPrinting %}{% endblock %}
+	{% block printed %}{% endblock %}
+  {%else%}
+	{% block printed %}{% endblock %}
+	{% block currentlyPrinting %}{% endblock %}
+	{% block inQueue %}{% endblock %}
+  {%endif%}
 
   {% block footer %}
   <!--<p style="font-size:41px; color:#E4EDDB; cursor:default;">|</p>-->
