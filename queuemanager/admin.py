@@ -15,6 +15,7 @@ admin.site.register(Profile)
 class UserResource(resources.ModelResource):
     class Meta:
         model = User
+        fields=('id', 'password','username','first_name','last_name','email')
         
 class UserAdmin(ImportExportModelAdmin):
     resource_class = UserResource
