@@ -8,17 +8,17 @@ from django.contrib.auth.models import User
 admin.site.register(Job)
 admin.site.register(FeaturedPrint)
 admin.site.register(RecentPrint)
-admin.site.register(Profile)
+#admin.site.register(Profile)
 
 
 
-class UserResource(resources.ModelResource):
+class ProfileResource(resources.ModelResource):
     class Meta:
-        model = User
-        fields=('id', 'password','username','first_name','last_name','email', 'profile__quota', 'profile__grade')
+        model = Profile
+        fields=('user__id', 'user__password','user__username','user__first_name','last_name','email', 'profile__quota', 'profile__grade')
         
-class UserAdmin(ImportExportModelAdmin):
-    resource_class = UserResource
+class ProfileAdmin(ImportExportModelAdmin):
+    resource_class = ProfileResource
 
-admin.site.unregister(User)
-admin.site.register(User, UserAdmin)
+admin.site.unregister(Profile)
+admin.site.register(Profile, ProfileAdmin)
