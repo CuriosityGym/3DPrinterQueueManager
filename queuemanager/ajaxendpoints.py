@@ -17,6 +17,7 @@ from django.urls import reverse
 
 from datetime import datetime
 from django.core import serializers
+from django.template.loader import render_to_string
 
 
 @login_required(login_url='/login/')
@@ -56,6 +57,17 @@ def getPrintingList(request):
             printingList[i].endDate = printingList[i].print_end_time.strftime("%d %b %Y")       
     context['PrintingContextObject'] = printingList
     return render(request, 'printingDataTemplate.html', context)
+
+
+@login_required(login_url='/login/')
+def getStatistics(request):
+    util = Util() # Get access to UTIL
+    context = util.getQuota(request.user) #Get quota
+    jobData=Job.objects.all() #Get data of all jobs, change this for your custom statistics
+    context["jobdata"]=jobData # assign it to some context list
+    
+    myJsonText=render_to_string('my_json_template.html', context) #this template basically allows you to generate your json structure as text
+    return HttpResponse(myJsonText, content_type='application/json') #return the json text as formatted json 
         
 
    

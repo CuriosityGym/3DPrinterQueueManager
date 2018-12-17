@@ -85,6 +85,7 @@ urlpatterns = [
     
     #testPaths
     path('viewSTL/<int:jobid>', views.viewSTL),
+    path('stats/', ajaxendpoints.getStatistics),
     
 ]
 
