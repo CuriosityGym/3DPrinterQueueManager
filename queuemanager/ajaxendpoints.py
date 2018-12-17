@@ -63,7 +63,7 @@ def getPrintingList(request):
 def getStatistics(request):
     util = Util() # Get access to UTIL
     context = util.getQuota(request.user) #Get quota
-    jobData=Job.objects.all() #Get data of all jobs, change this for your custom statistics
+    jobData=list(Job.objects.all()) #Get data of all jobs, change this for your custom statistics
     context["jobdata"]=jobData # assign it to some context list
     
     myJsonText=render_to_string('my_json_template.html', context) #this template basically allows you to generate your json structure as text
